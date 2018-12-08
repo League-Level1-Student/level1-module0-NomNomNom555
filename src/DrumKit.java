@@ -21,7 +21,9 @@ import javax.swing.JPanel;
 public class DrumKit implements MouseListener {
 
     JLabel drumLabelWithImage;
-
+    JLabel cymbalLabelWithImage;
+    JLabel drummyLabelWithImage;
+    JLabel tomLabelWithImage;
     public static void main(String[] args) throws Exception {
    	 new DrumKit().getGoing();
     }
@@ -57,39 +59,51 @@ public class DrumKit implements MouseListener {
     	drumLabelWithImage.addMouseListener(this);
      	 // 18. Add more images to make a drumkit. Remember to add this mouse listener to each one.
     	String Cym= "Cymbals.jpg";
-    	drumLabelWithImage=createLabelImage(Cym);
-    	 second.add(drumLabelWithImage);
+    	cymbalLabelWithImage=createLabelImage(Cym);
+    	 second.add(cymbalLabelWithImage);
     	 second.setLayout(new GridLayout());
     	first.pack();
-    	drumLabelWithImage.addMouseListener(this);
+    	cymbalLabelWithImage.addMouseListener(this);
     	
     	String biggy= "Big Drum.jpg";
-    	drumLabelWithImage=createLabelImage(biggy);
-    	 second.add(drumLabelWithImage);
+    	drummyLabelWithImage=createLabelImage(biggy);
+    	 second.add(drummyLabelWithImage);
     	 second.setLayout(new GridLayout());
     	first.pack();
-    	drumLabelWithImage.addMouseListener(this);
+    	drummyLabelWithImage.addMouseListener(this);
     	
     	String tomtom= "Tom.jpeg";
-    	drumLabelWithImage=createLabelImage(tomtom);
-    	 second.add(drumLabelWithImage);
+    	tomLabelWithImage=createLabelImage(tomtom);
+    	 second.add(tomLabelWithImage);
     	 second.setLayout(new GridLayout());
     	first.pack();
-    	drumLabelWithImage.addMouseListener(this);
+    	tomLabelWithImage.addMouseListener(this);
 
     	}
 
     public void mouseClicked(MouseEvent e) {
    	 // 14. Print "mouse clicked" to the console. Run your program and watch the console to see when this is printed.
-
+    	System.out.println("mouse clicked");
    	 JLabel drumClicked = (JLabel) e.getSource();  // This line gets the label that the mouse clicked on
    	 
    	 // 15. Download a drum sound and drop it into your "default package". You can find it on freesound.org. To download it, log in as leagueofamazing/code4life.
    	 // 16. If they clicked on the drumImage...
+   	 // 17. ...use the playSound method to play a drum sound. Test to see if it works
 
-   		 // 17. ...use the playSound method to play a drum sound. Test to see if it works
-
- 
+   	 if(drumClicked.equals(drumLabelWithImage)){
+   		 playSound("3195__noisecollector__ydd6snare.wav");
+   	 }
+   	 else if(drumClicked.equals(cymbalLabelWithImage)) {
+   		 playSound("cymbal.wav");
+   	 }
+   	 else if(drumClicked.equals(drummyLabelWithImage)) {
+   		 playSound("drum.wav");
+   	 }
+   	else if(drumClicked.equals(tomLabelWithImage)) {
+  		 playSound("87727__thealmightysound__high-tom.wav");
+  	 }
+   	
+   	
     }
 
     private JLabel createLabelImage(String fileName)
